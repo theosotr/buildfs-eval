@@ -1,0 +1,3 @@
+[submodule "buildfs"]
+	path = buildfs
+	url = https://github.com/theosotr/buildfs
