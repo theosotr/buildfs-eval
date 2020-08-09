@@ -75,6 +75,3 @@ row_format = "{:<40}" +  "{:>20}" + "{:>5}" * 4
 print(row_format.format(*header))
 for r in rows:
     print(row_format.format(*r))
-with open("rq2_out.csv", "w") as f:
-    writer = csv.writer(f)
-    writer.writerows(rows)

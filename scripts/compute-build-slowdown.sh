@@ -18,6 +18,7 @@ function compute_slowdown()
     echo "$base,$avg_base,$avg_buildfs" >> tmp.txt
   done
   cat tmp.txt | $dir/build-slowdown.py
+  rm tmp.txt
 }
 
 echo "The slowdown for Gradle builds is $(compute_slowdown make-projects) (90th percentile)"
