@@ -1,0 +1,61 @@
+#! /bin/bash
+
+if [ -z $1 ]; then
+  echo "You have to provide the txt of the make projects (i.e., data/make-projects.txt)"
+  exit 1
+fi
+
+if [ -z $2 ]; then
+  echo "You have provide the directory to store the results"
+  exit 1
+fi
+
+counter=1
+projects=$(realpath $1)
+out_dir=$(realpath $2)
+dir=$(dirname $0)
+
+for i in $(cat $projects); do
+  project="$(cut -d ',' -f 1 <<<$i)"
+  version="$(cut -d ',' -f 2 <<<$i)"
+  project_type="$(cut -d ',' -f 3 <<<$i)"
+
+  base_cmd="sudo docker run --rm -ti --privileged \
+    -v $out_dir:/home/buildfs/data"
+
+  if [ "$project" = "tsar" ]; then
+    echo "make" > /tmp/tmp-script.sh
+    echo "make clean" >> /tmp/tmp-script.sh
+    chmod +x /tmp/tmp-script.sh
+    base_cmd="$base_cmd -v /tmp/tmp-script.sh:/home/buildfs/pre-script.sh"
+  fi
+
+  if [ "$project" = "webdis" ]; then
+    echo "sudo apt install -y libevent-dev" > /tmp/tmp-script.sh
+    chmod +x /tmp/tmp-script.sh
+    base_cmd="$base_cmd -v /tmp/tmp-script.sh:/home/buildfs/pre-script.sh"
+  fi
+
+  if [ "$project_type" = "debian" ]; then
+    build_system=sbuild-mkcheck
+    image_name=buildfs-sbuild
+  else
+    build_system=mkcheck
+    image_name=buildfs
+  fi
+
+  cmd="$base_cmd $image_name \
+    -p "$project" \
+    -v "$version" \
+    -s -t $build_system"
+
+  if [ "$project" = "cqmetrics" ]; then
+    # For cqmetrics we need to enter the src directory.
+    cmd="$cmd -b src"
+  fi
+
+  echo "$counter: Building and analyzing $project.."
+  eval $cmd
+
+  counter=$((counter + 1))
+done

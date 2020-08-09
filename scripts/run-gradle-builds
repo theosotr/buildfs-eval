@@ -1,0 +1,43 @@
+#! /bin/bash
+
+if [ -z $1 ]; then
+  echo "You have to provide the txt of the gradle projects (i.e., data/gradle-projects.txt)"
+  exit 1
+fi
+
+if [ -z $2 ]; then
+  echo "You have provide the directory to store the results"
+  exit 1
+fi
+
+counter=1
+projects=$(realpath $1)
+out_dir=$(realpath $2)
+base_build=$3
+image_name=buildfs
+
+for i in $(cat $projects); do
+  project_url="$(cut -d ',' -f 1 <<<$i)"
+  git_hash="$(cut -d ',' -f 2 <<<$i)"
+
+  base_cmd="sudo docker run --rm -ti --privileged \
+    -v $out_dir:/home/buildfs/data"
+
+  cmd1="$base_cmd $image_name \
+    -p "$project_url" \
+    -v "$git_hash" \
+    -s -t gradle"
+
+  cmd2="$base_cmd $image_name \
+    -p "$project_url" \
+    -v "$git_hash" \
+    -t gradle"
+
+  echo "$counter: Building and analyzing $project.."
+  eval $cmd1
+
+  if [ "$base_build" -eq 1 ]; then
+    eval $cmd2
+  fi
+  counter=$((counter + 1))
+done
