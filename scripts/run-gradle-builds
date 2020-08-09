@@ -33,7 +33,7 @@ for i in $(cat $projects); do
     -v "$git_hash" \
     -t gradle"
 
-  echo "$counter: Building and analyzing $project.."
+  echo "$counter: Building and analyzing $i.."
   eval $cmd1
 
   if [ "$base_build" -eq 1 ]; then
