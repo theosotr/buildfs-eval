@@ -287,7 +287,7 @@ https://github.com/intel/tbb.git,18070344d755ece04d169e6cc40775cae9288cee,github
 https://github.com/vanhauser-thc/thc-hydra.git,d0c9d7ca3f84c7eaeda64bba6309fe713ee3202b,github
 https://github.com/jonas/tig.git,ca0809dbd20a31f6fa9b84c7eed5ecaa1368cd9d,github
 https://github.com/ssloy/tinyrenderer.git,37fcf552029d79a00d8800bdbd8433f363a491e6,github
-https://github.com/alibaba/tsar.git,9269cb8b2cf96cdf49ae50d888f5db7306cf1677,github
+https://github.com/alibaba/tsar.git,98873d3ca8baa17be420569fa441e0eca4013a1c,github
 https://github.com/namhyung/uftrace.git,367945f41605dec716c3ad109d42813139b80597,github
 https://github.com/uNetworking/uWebSockets.js.git,b004b87a0e5e450a0e13d154499f37b8580749e9,github
 https://github.com/vlfeat/vlfeat.git,1b9075fc42fe54b42f0e937f8b9a230d8e2c7701,github
