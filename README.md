@@ -502,7 +502,7 @@ we examined in our evaluation.
 You can fetch the data by runnning
 
 ```bash
-wget -O benchmarks.zip "https://www.dropbox.com/s/yk1qf7ib60xv0nl/benchmarks.zip?dl=1"
+wget -O benchmarks.zip "https://zenodo.org/record/4063156/files/benchmarks.zip?download=1"
 ```
 
 **MD5 Checksum**: cf5eae673c9ff089a662e3f600b7d8da
