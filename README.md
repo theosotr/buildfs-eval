@@ -1,3 +1,7 @@
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4063694.svg)](https://doi.org/10.5281/zenodo.4063694)
+
+
+
 Artifact for "A Model for Detecting Faults in Build Specifications" (OOPSLA'20)
 ===============================================================================
 
