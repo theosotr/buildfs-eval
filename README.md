@@ -1,8 +1,15 @@
 Artifact for "A Model for Detecting Faults in Build Specifications" (OOPSLA'20)
 ===============================================================================
 
-This is the artifact for the conditionally accepted OOPSLA'20 paper
+This is the artifact for the OOPSLA'20 paper titled
 "A Model for Detecting Faults in Build Specifications".
+
+* Thodoris Sotiropoulos, Stefanos Chaliasos, Dimitris Mitropoulos, and Diomidis Spinellis. 2020.
+  [A Model for Detecting Faults in Build Specifications](https://doi.org/10.1145/3428212).
+  In Proceedings of the ACM on Programming Languages (OOPSLA '20), 2020, Virtual, USA,
+  30 pages. 
+  ([doi:10.1145/3428212](https://doi.org/10.1145/3428212))
+
 
 Requirements
 ============
