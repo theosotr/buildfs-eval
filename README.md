@@ -11,6 +11,9 @@ This is the artifact for the OOPSLA'20 paper titled
   ([doi:10.1145/3428212](https://doi.org/10.1145/3428212))
 
 
+An archived version is also available on Zenodo. See https://doi.org/10.5281/zenodo.4063694.
+
+
 Requirements
 ============
 
